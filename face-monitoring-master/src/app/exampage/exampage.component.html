@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <form>
+        <fieldset>
+          <legend>Which of the following is a real spell</legend>
+          <input type="radio" id="radio1" name="radios" checked>
+          <label for="radio1">Hocis Pocis</label><br>
+          <input type="radio" id="radio2" name="radios">
+          <label for="radio2">Ablakazam</label><br>
+          <input type="radio" id="radio3" name="radios">
+          <label for="radio3">Lumos</label>
+        </fieldset>
+        <fieldset>
+          <legend>What is the name of a person without magic</legend>
+          <input type="radio" id="radio4" name="radios1" checked>
+          <label for="radio1">Moggel</label><br>
+          <input type="radio" id="radio5" name="radios1">
+          <label for="radio2">Mogel</label><br>
+          <input type="radio" id="radio6" name="radios1">
+          <label for="radio3">Muggle</label>
+        </fieldset>
+        <fieldset>
+          <legend>Which bird rises from the ashes</legend>
+          <input type="radio" id="radio7" name="radios2" checked>
+          <label for="radio7">Pegasus</label><br>
+          <input type="radio" id="radio8" name="radios2">
+          <label for="radio8">Pheonix</label><br>
+          <input type="radio" id="radio9" name="radios2">
+          <label for="radio9">Dragon Dove</label>
+        </fieldset>
+        <button (click)="completeExam()">Submit Answers</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="py-4 text-center">
+        <h5>Webcam preview</h5>
+        <webcam [height]="320" [width]="240" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+          *ngIf="showWebcam" [videoOptions]="videoOptions" (initError)="handleInitError($event)"></webcam>
+          <countdown #cd1 [config]="{leftTime: 400}" style="margin-top: -250px;margin-left: 400px;"></countdown> 
+          <img src="assets/images/clock.jpg" [height]="50" [width]="50"  style="margin-top: -150px;margin-left: 400px;"> 
+         
+
+          <div class="py-4 text-center">
+            
+            <div *ngIf="displayname; then thenBlock; else elseBlock"> </div>
+            <ng-template  #thenBlock> 
+              <div>
+                <button (click)="cd1.pause()" id="myCheck1" class="button4" style="background-color:#fdfdfd" >pause</button>
+                <button (click)="cd1.resume()" id="myCheck2" class="button4" style="background-color:#ffffff">resume</button> 
+              </div>
+            </ng-template>
+
+            <ng-template  #elseBlock>
+              <div>
+                <button (click)="cd1.pause()" id="myCheck1" class="button4" style="background-color:#ffffff" >pause</button>
+              <button (click)="cd1.resume()" id="myCheck2" class="button4" style="background-color:#ffffff" >resume</button> 
+                 </div>
+            </ng-template>
+
+          </div>
+          
+      </div>
+     
+    </div>
+  </div>
+</div>

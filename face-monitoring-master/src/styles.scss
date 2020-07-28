@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+    .mat-dialog-container {
+      padding-top: 0px;
+      background-color:#d85555;
+
+      h1{
+        padding: 0;
+        margin : 0px;
+        margin-right : -24px;
+        margin-left : -24x;
+        color:#010b0c;
+      
+        // background: #E60000;
+      }
+    }
+
+
